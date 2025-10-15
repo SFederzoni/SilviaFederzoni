@@ -3,8 +3,8 @@
 # ================================
 title: Silvia Federzoni
 description: Ma page personnelle de Silvia Federzoni
-url: "https://sfederzoni.github.io"
-baseurl: "SilviaFederzoni"
+url: "https://sfederzoni.github.io/SilviaFederzoni/"
+baseurl: ""
 
 # ================================
 # Thème Jekyll 
@@ -14,12 +14,13 @@ theme: cayman
 # ================================
 # Layaout pour les pages 
 # ================================
-dafaults: 
-  - scope: 
-      path: "" #layaout pour toutes les pages 
+defaults:
+  - scope:
+      path: "" # layout pour toutes les pages 
     values:
-      layout: default #layout utilisé par défaut 
- - scope: 
-      path: "cv.md" #layaout pour la page du CV  
+      layout: "default" # layout utilisé par défaut 
+  - scope:
+      path: "cv.md" # layout pour la page du CV  
     values:
-      layout: cv #layout utilisé pour la page du CV 
+      layout: "cv" # layout utilisé pour la page du CV
+
