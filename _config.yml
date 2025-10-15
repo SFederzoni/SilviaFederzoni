@@ -2,7 +2,7 @@
 # Configuration générale 
 # ================================
 title: Silvia Federzoni
-description: Ma page personnelle de Silvia Federzoni
+description: Ma page personnelle 
 url: "https://sfederzoni.github.io"
 baseurl: "/SilviaFederzoni"
 
@@ -24,3 +24,26 @@ defaults:
     values:
       layout: "cv" # layout utilisé pour la page du CV
 
+# ================================
+# Menu
+# ================================
+header_pages: 
+- index.md
+- publications.md
+- cv.md
+- cours.md
+- contact.md
+
+# ================================
+# Plugins GitHub Pages autorisés
+# ================================
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# ================================
+# Sass (CSS) options
+# ================================
+sass:
+  style: compressed
