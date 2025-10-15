@@ -4,17 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
-  {{ content_for_head }}
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  {% include header.html %}
+  <header class="site-header">
+    <div class="header-top">
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <a href="https://github.com/sfederzoni" target="_blank" class="github-button">GitHub</a>
+    </div>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}" class="nav-btn">Accueil</a>
+      <a href="{{ '/publications.html' | relative_url }}" class="nav-btn">Publications</a>
+      <a href="{{ '/cours.html' | relative_url }}" class="nav-btn">Cours</a>
+      <a href="{{ '/projets.html' | relative_url }}" class="nav-btn">Projets</a>
+      <a href="{{ '/cv.html' | relative_url }}" class="nav-btn">CV</a>
+      <a href="{{ '/contact.html' | relative_url }}" class="nav-btn">Contact</a>
+    </nav>
+  </header>
+
   <main class="page-content">
     {{ content }}
   </main>
+
   <footer class="site-footer">
     © 2025 Silvia Federzoni – Hosted on GitHub Pages
   </footer>
 </body>
 </html>
-
