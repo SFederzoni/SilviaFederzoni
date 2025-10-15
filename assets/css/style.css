@@ -1,42 +1,3 @@
----
----
-
-@import "minima";
-
-/* =============================
-   Personnalisation style Cayman
-   ============================= */
-
-$primary-color: #2c9ab7;
-$background-color: #ffffff;
-$text-color: #222;
-
-body {
-  background-color: $background-color;
-  color: $text-color;
-  font-family: "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
-}
-
-/* ---- Header / bandeau ---- */
-.site-header {
-  background-color: $primary-color;
-  color: white;
-  text-align: center;
-  padding: 2rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.site-title {
-  color: white !important;
-  font-size: 2rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.site-nav {
-  margin-top: 1rem;
-}
 .site-nav a {
   color: white !important;
   margin: 0 1rem;
@@ -46,16 +7,12 @@ body {
   text-decoration: underline;
 }
 
-/* ---- Liens généraux ---- */
-a {
-  color: $primary-color;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+.page-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/* ---- Footer ---- */
 .site-footer {
   background-color: #f6f8fa;
   text-align: center;
@@ -65,14 +22,6 @@ a:hover {
   border-top: 1px solid #eaeaea;
 }
 
-/* ---- Section principale ---- */
-.page-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
-
-/* ---- Boutons GitHub ---- */
 .github-banner {
   display: inline-block;
   background: white;
