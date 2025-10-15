@@ -9,7 +9,7 @@ baseurl: "/SilviaFederzoni"
 # ================================
 # Thème Jekyll 
 # ================================
-theme: cayman
+theme: jekyll-theme-cayman
 
 # ================================
 # Layaout pour les pages 
