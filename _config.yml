@@ -1,4 +1,25 @@
-title: Ma Page Personnelle
-description: Site perso de Silvia Federzoni
-theme: Feeling Responsive
+# ================================
+# Configuration générale 
+# ================================
+title: Silvia Federzoni
+description: Ma page personnelle de Silvia Federzoni
+url: "https://sfederzoni.github.io"
+baseurl: "SilviaFederzoni"
 
+# ================================
+# Thème Jekyll 
+# ================================
+theme: cayman
+
+# ================================
+# Layaout pour les pages 
+# ================================
+dafaults: 
+  - scope: 
+      path: "" #layaout pour toutes les pages 
+    values:
+      layout: default #layout utilisé par défaut 
+ - scope: 
+      path: "cv.md" #layaout pour la page du CV  
+    values:
+      layout: cv #layout utilisé pour la page du CV 
