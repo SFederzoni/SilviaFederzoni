@@ -1,33 +1,149 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-top">
-      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-      <a href="https://github.com/sfederzoni" target="_blank" class="github-button">GitHub</a>
-    </div>
-    <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}" class="nav-btn">Accueil</a>
-      <a href="{{ '/publications.html' | relative_url }}" class="nav-btn">Publications</a>
-      <a href="{{ '/cours.html' | relative_url }}" class="nav-btn">Cours</a>
-      <a href="{{ '/projets.html' | relative_url }}" class="nav-btn">Projets</a>
-      <a href="{{ '/cv.html' | relative_url }}" class="nav-btn">CV</a>
-      <a href="{{ '/contact.html' | relative_url }}" class="nav-btn">Contact</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
 
-  <main class="page-content">
-    {{ content }}
-  </main>
+    <!-- ==============================
+         Feuilles de style
+         ============================== -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+      /* =============================
+         Styles de base du site
+         ============================= */
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        background: #f8f8f8;
+        color: #222;
+        line-height: 1.6;
+      }
 
-  <footer class="site-footer">
-    © 2025 Silvia Federzoni – Hosted on GitHub Pages
-  </footer>
-</body>
+      /* =============================
+         Bandeau principal (header)
+         ============================= */
+      header {
+        background: linear-gradient(90deg, #1b365d, #007acc);
+        color: white;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      header .site-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      /* =============================
+         Menu de navigation
+         ============================= */
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      nav a:hover {
+        border-bottom: 2px solid white;
+      }
+
+      /* =============================
+         Contenu principal
+         ============================= */
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      /* =============================
+         Icônes (logos)
+         ============================= */
+      .icons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .icons img {
+        height: 32px;
+        filter: brightness(0) invert(1);
+        transition: transform 0.2s ease;
+      }
+
+      .icons img:hover {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =============================
+         Bandeau supérieur
+         ============================= -->
+    <header>
+      <!-- Nom du site -->
+      <div class="site-title">{{ site.title }}</div>
+
+      <!-- Menu de navigation -->
+      <nav>
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Accueil</a></li>
+          <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+          <li><a href="{{ '/cours/' | relative_url }}">Cours</a></li>
+          <li><a href="{{ '/cv/' | relative_url }}">CV</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Icônes GitHub + HAL -->
+      <div class="icons">
+        <a href="https://github.com/sfederzoni" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+        </a>
+        <a href="https://hal.archives-ouvertes.fr/silvia-federzoni" target="_blank">
+          <img src="https://www.ccsd.cnrs.fr/wp-content/uploads/2019/07/logo_HAL.png" alt="HAL" style="height: 28px;">
+        </a>
+      </div>
+    </header>
+
+    <!-- =============================
+         Contenu de la page
+         ============================= -->
+    <main>
+      {{ content }}
+    </main>
+
+    <!-- =============================
+         Pied de page
+         ============================= -->
+    <footer>
+      © {{ site.title }} — Propulsé par <a href="https://jekyllrb.com" target="_blank">Jekyll</a> & GitHub Pages
+    </footer>
+  </body>
 </html>
