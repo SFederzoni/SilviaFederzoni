@@ -3,7 +3,9 @@ layout: default
 title: Accueil
 ---
 
-**Silvia Federzoni**
+<div style="background-color:#2c9ab7; color:white; padding:20px; margin:20px 0;">
+ <b>Silvia Federzoni</b>
+</div>
 # Bienvenue sur ma page personnelle 👋
 
 
