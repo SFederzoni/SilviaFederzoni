@@ -6,41 +6,42 @@ permalink: /publications/
 
 # Publications
 
-<!-- ==============================
-     Section : entête de la page
-     ============================== -->
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-  <!-- Logo HAL -->
   <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank">
     <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 30px;">
   </a>
   <div>
     <p style="margin: 0;">Synchronisé automatiquement avec mon profil HAL</p>
     <p>
-      <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" 
-         target="_blank" 
-         style="color: #3366cc; text-decoration: none; font-weight: bold;">
-         → Voir mon profil HAL complet
+      <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="color: #3366cc; text-decoration: none; font-weight: bold;">
+        → Voir mon profil HAL complet
       </a>
     </p>
   </div>
 </div>
 
-<!-- ==============================
-     Section : liste des publications HAL
-     ============================== -->
 <div id="hal-publications">
   <p><em>Chargement des publications depuis HAL...</em></p>
 </div>
 
 <script>
 /* ==========================================================
-   Script pour récupérer automatiquement les publications HAL
+   Script : afficher les publications HAL au format APA
    ========================================================== */
 
 async function loadHALPublications() {
-  const halId = "federzoni-silvia"; // ✅ corrige ton ID HAL ici si besoin
-  const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,journalTitle_s,bookTitle_s,conferenceTitle_s,label_bibtex,linkExtUrl_s,abstract_s&rows=100&sort=producedDateY_i desc`;
+  const halId = "federzoni-silvia";
+  const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,journalTitle_s,bookTitle_s,conferenceTitle_s,linkExtUrl_s,abstract_s&pageSize=100&sort=producedDateY_i desc`;
+
+  // Dictionnaire pour nommer les types de documents proprement
+  const typeLabels = {
+    ART: "Articles de revues",
+    COMM: "Communications",
+    COUV: "Chapitres d’ouvrages",
+    THESE: "Thèses",
+    DOUV: "Directions d’ouvrages",
+    OTHER: "Autres publications"
+  };
 
   try {
     const response = await fetch(url);
@@ -56,36 +57,35 @@ async function loadHALPublications() {
     // Groupement par type
     const grouped = {};
     data.response.docs.forEach(pub => {
-      const type = pub.docType_s || "Autre";
+      const type = pub.docType_s || "OTHER";
       if (!grouped[type]) grouped[type] = [];
       grouped[type].push(pub);
     });
 
+    // Construction HTML pour chaque groupe
     for (const [type, pubs] of Object.entries(grouped)) {
       const section = document.createElement('section');
-      section.innerHTML = `<h2>${type.charAt(0).toUpperCase() + type.slice(1)}</h2>`;
+      section.innerHTML = `<h2>${typeLabels[type] || type}</h2>`;
       section.style.marginBottom = "2rem";
 
       pubs.forEach(pub => {
         const title = pub.title_s || "Titre inconnu";
         const authors = pub.authFullName_s ? pub.authFullName_s.join(', ') : "Auteurs non renseignés";
         const year = pub.producedDateY_i || "";
-        const link = pub.linkExtUrl_s ? pub.linkExtUrl_s[0] : null;
-        const abstract = pub.abstract_s ? pub.abstract_s[0] : null;
         const venue = pub.journalTitle_s || pub.bookTitle_s || pub.conferenceTitle_s || "";
+        const link = pub.linkExtUrl_s ? pub.linkExtUrl_s[0] : null;
+
+        // Format APA simplifié
+        const apa = `
+          ${authors} (${year}). <em>${title}</em>.
+          ${venue ? `<span style="color:#444;">${venue}</span>.` : ""}
+          ${link ? `<a href="${link}" target="_blank" style="color:#007acc;">↗ Voir sur HAL</a>` : ""}
+        `;
 
         const div = document.createElement('div');
         div.classList.add('publication');
-        div.style.marginBottom = '1.2rem';
-        div.style.padding = '0.5rem 0';
-        div.style.borderBottom = '1px solid #ddd';
-
-        div.innerHTML = `
-          <strong>${title}</strong><br>
-          <em>${authors}</em> — ${year} ${venue ? `— <span style="color:#444;">${venue}</span>` : ""}<br>
-          ${abstract ? `<details><summary>Résumé</summary><p>${abstract}</p></details>` : ""}
-          ${link ? `<a href="${link}" target="_blank" style="color:#007acc;">↗ Voir sur HAL</a>` : ""}
-        `;
+        div.style.marginBottom = '1rem';
+        div.innerHTML = apa;
         section.appendChild(div);
       });
 
@@ -101,3 +101,20 @@ async function loadHALPublications() {
 
 document.addEventListener('DOMContentLoaded', loadHALPublications);
 </script>
+
+<style>
+h2 {
+  border-bottom: 3px solid #007acc;
+  padding-bottom: 0.3rem;
+  color: #1b365d;
+  margin-top: 2rem;
+}
+.publication {
+  line-height: 1.5;
+  font-size: 1rem;
+  padding: 0.4rem 0;
+}
+.publication em {
+  font-style: italic;
+}
+</style>
