@@ -40,3 +40,60 @@ permalink: /publications/
 </ul>
 
 
+<script>
+/* ==========================================================
+   Script pour récupérer automatiquement les publications HAL
+   Auteur : ChatGPT x Silvia Federzoni
+   ========================================================== */
+
+async function loadHALPublications() {
+  const halId = "silvia-federzoni"; // Identifiant HAL (adapter si besoin)
+  const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,label_bibtex,linkExtUrl_s&rows=50&sort=producedDateY_i desc`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const container = document.getElementById('hal-publications');
+
+    container.innerHTML = ''; // On vide le contenu initial
+
+    if (!data.response || data.response.numFound === 0) {
+      container.innerHTML = "<p>Aucune publication trouvée sur HAL.</p>";
+      return;
+    }
+
+    // Construction des blocs de publications
+    data.response.docs.forEach(pub => {
+      const title = pub.title_s || "Titre non disponible";
+      const authors = pub.authFullName_s ? pub.authFullName_s.join(', ') : "Auteurs inconnus";
+      const year = pub.producedDateY_i || "";
+      const type = pub.docType_s || "";
+      const link = pub.linkExtUrl_s ? pub.linkExtUrl_s[0] : null;
+
+      const div = document.createElement('div');
+      div.classList.add('publication');
+      div.style.marginBottom = '1.2rem';
+      div.style.padding = '0.5rem 0';
+      div.style.borderBottom = '1px solid #ddd';
+
+      div.innerHTML = `
+        <strong>${title}</strong><br>
+        <em>${authors}</em> — ${type} (${year})<br>
+        ${link ? `<a href="${link}" target="_blank">↗ Voir sur HAL</a>` : ""}
+      `;
+
+      container.appendChild(div);
+    });
+
+  } catch (error) {
+    document.getElementById('hal-publications').innerHTML =
+      "<p>❌ Erreur lors du chargement des publications HAL.</p>";
+    console.error("Erreur HAL API :", error);
+  }
+}
+
+// Exécuter le script quand la page est chargée
+document.addEventListener('DOMContentLoaded', loadHALPublications);
+</script>
+
+
