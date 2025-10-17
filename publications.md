@@ -2,43 +2,36 @@
 layout: default
 title: "Publications"
 permalink: /publications/
---- 
+---
 
-# Publications 
-
+# Publications
 
 <!-- ==============================
      Section : entête de la page
      ============================== -->
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
   <!-- Logo HAL -->
- <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank">
-   <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 30px;">
-</a>
+  <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank">
+    <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 30px;">
+  </a>
   <div>
     <p style="margin: 0;">Synchronisé automatiquement avec mon profil HAL</p>
-    <p><a href="[https://hal.archives-ouvertes.fr/silvia-federzoni](https://cv.hal.science/federzoni-silvia?langChosen=fr"
-          target="_blank"
-          style="color: #3366cc; text-decoration: none; font-weight: bold;">
-          → Voir mon profil HAL complet
-       </a></p>
+    <p>
+      <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" 
+         target="_blank" 
+         style="color: #3366cc; text-decoration: none; font-weight: bold;">
+         → Voir mon profil HAL complet
+      </a>
+    </p>
   </div>
 </div>
 
 <!-- ==============================
-     Section : liste des publications
+     Section : liste des publications HAL
      ============================== -->
-<ul style="list-style-type: none; padding: 0;">
-{% for pub in site.data.publications %}
-  <li style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #ff6600; background: #f9f9f9; border-radius: 8px;">
-    <strong>{{ pub.authors }}</strong> ({{ pub.year }}).<br>
-    <em>{{ pub.title }}</em>.<br>
-    {% if pub.source %}<span style="color: #555;">{{ pub.source }}</span>.<br>{% endif %}
-    <a href="{{ pub.link }}" target="_blank" style="color: #0066cc;">🔗 Lire sur HAL</a>
-  </li>
-{% endfor %}
-</ul>
-
+<div id="hal-publications">
+  <p><em>Chargement des publications depuis HAL...</em></p>
+</div>
 
 <script>
 /* ==========================================================
@@ -46,7 +39,7 @@ permalink: /publications/
    ========================================================== */
 
 async function loadHALPublications() {
-  const halId = "silvia-federzoni"; // ton identifiant HAL
+  const halId = "federzoni-silvia"; // ✅ corrige ton ID HAL ici si besoin
   const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,journalTitle_s,bookTitle_s,conferenceTitle_s,label_bibtex,linkExtUrl_s,abstract_s&rows=100&sort=producedDateY_i desc`;
 
   try {
@@ -60,16 +53,14 @@ async function loadHALPublications() {
       return;
     }
 
-    // Création d'une section par type de document
+    // Groupement par type
     const grouped = {};
-
     data.response.docs.forEach(pub => {
       const type = pub.docType_s || "Autre";
       if (!grouped[type]) grouped[type] = [];
       grouped[type].push(pub);
     });
 
-    // Construction HTML pour chaque groupe
     for (const [type, pubs] of Object.entries(grouped)) {
       const section = document.createElement('section');
       section.innerHTML = `<h2>${type.charAt(0).toUpperCase() + type.slice(1)}</h2>`;
@@ -110,5 +101,3 @@ async function loadHALPublications() {
 
 document.addEventListener('DOMContentLoaded', loadHALPublications);
 </script>
-
-
