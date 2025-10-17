@@ -5,8 +5,9 @@ permalink: /publications/
 --- 
 
 # Publications 
-Cette page présente mes publications, classées par types et organisées par ordre chronologique. 
+<a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank">
+   <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 30px;">
+</a>
 
-## Chapitres dans un ouvrage collectif 
 
 
