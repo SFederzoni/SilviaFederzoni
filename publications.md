@@ -35,12 +35,14 @@ async function loadHALPublications() {
 
   // Dictionnaire pour nommer les types de documents proprement
   const typeLabels = {
-    ART: "Articles de revues",
+    ART: "Articles de revue",
     COMM: "Communications",
     COUV: "Chapitres d’ouvrages",
     THESE: "Thèses",
     DOUV: "Directions d’ouvrages",
-    OTHER: "Autres publications"
+    OTHER: "Autres publications",
+    UNDEFINED: "Rapports", 
+    POSTER: "Posters" 
   };
 
   try {
