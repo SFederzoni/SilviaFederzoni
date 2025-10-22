@@ -5,9 +5,9 @@ permalink: /publications/
 ---
 
 
-
+# Publications {.titre-publication}
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem;">
-  <h1 style="color: #1b365d"; font-weight: bold;">Publications</h1>
+  
   <p>La liste des publications est synchronisée automatiquement avec mon profil HAL</p>
 
   <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
