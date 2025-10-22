@@ -4,7 +4,7 @@ title: "Publications"
 permalink: /publications/
 ---
 
-# Publications{:.titre-publication}
+# Publications
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem;">
   
   <p>La liste des publications est synchronisée automatiquement avec mon profil HAL</p>
