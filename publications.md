@@ -5,16 +5,18 @@ permalink: /publications/
 ---
 
 # Publications
+<p>Synchronisé automatiquement avec mon profil HAL</p>
 
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
   <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank">
-    <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 30px;">
+    <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 45px;">
   </a>
   <div>
-    <p style="margin: 0;">Synchronisé automatiquement avec mon profil HAL</p>
+    <p style="margin: 0;"> <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="color: #3366cc; text-decoration: none; font-weight: bold;">
+         Mon CV HAL</p>
     <p>
-      <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="color: #3366cc; text-decoration: none; font-weight: bold;">
-        → Voir mon profil HAL complet
+
+  </a>
       </a>
     </p>
   </div>
