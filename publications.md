@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', loadHALPublications);
 <style>
 h2 {
   position: relative; /* nécessaire pour positionner le ::after */
-  display: flexible; 
+  display: inline-block; 
   padding-bottom: 0.3rem;
   color: #1b365d;
   margin-top: 2rem;
