@@ -119,7 +119,7 @@ h2::after {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 3px;
+  height: 4px;
   width: 100%;
   background: linear-gradient(
     to right top,
