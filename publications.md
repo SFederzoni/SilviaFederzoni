@@ -107,6 +107,7 @@ h2 {
   padding-bottom: 0.3rem;
   color: #1b365d;
   margin-top: 2rem;
+  width: 100%;
 }
 
 /* Ligne dégradée en bas du h2 */
