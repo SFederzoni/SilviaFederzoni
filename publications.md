@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', loadHALPublications);
 
 <style>
 h2 {
-  border-bottom: 3px solid #dc3545;
+  border-bottom: 3px solid linear-gradient(to right top, #1b365d, #123977, #193b8f, #3238a5, #5230b7, #7c26b2, #9d18ab, #b800a2, #cc0089, #d80070, #dd175a, #dc3545);
   padding-bottom: 0.3rem;
   color: #1b365d;
   margin-top: 2rem;
