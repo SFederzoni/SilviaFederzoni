@@ -47,3 +47,15 @@ plugins:
 # ================================
 sass:
   style: compressed
+
+  markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  parse_block_html: true
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  show_warnings: false
+
