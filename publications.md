@@ -41,7 +41,7 @@ async function loadHALPublications() {
     THESE: "Thèses",
     DOUV: "Directions d’ouvrages",
     OTHER: "Autres publications",
-    UNDEFINED: "Rapports", 
+    UNDEFINED: "Documents de travail", 
     POSTER: "Posters" 
   };
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', loadHALPublications);
 
 <style>
 h2 {
-  border-bottom: 3px solid #007acc;
+  border-bottom: 3px solid #dc3545;
   padding-bottom: 0.3rem;
   color: #1b365d;
   margin-top: 2rem;
