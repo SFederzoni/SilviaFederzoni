@@ -4,7 +4,7 @@ title: "Publications"
 permalink: /publications/
 ---
 
-# Publications
+# Publications {.titre-publication}
 <p>Synchronisé automatiquement avec mon profil HAL</p>
 
 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
@@ -12,7 +12,7 @@ permalink: /publications/
     <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 45px;">
   </a>
   <div>
-    <p style="margin: 0;"> <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="color: #3366cc; text-decoration: none; font-weight: bold;">
+    <p style="margin: 0;"> <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="color: #1b365d; text-decoration: none; font-weight: bold;">
          Mon CV HAL</p>
     <p>
 
