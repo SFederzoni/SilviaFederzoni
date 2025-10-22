@@ -106,10 +106,37 @@ document.addEventListener('DOMContentLoaded', loadHALPublications);
 
 <style>
 h2 {
-  border-bottom: 3px solid linear-gradient(to right top, #1b365d, #123977, #193b8f, #3238a5, #5230b7, #7c26b2, #9d18ab, #b800a2, #cc0089, #d80070, #dd175a, #dc3545);
+  position: relative; /* nécessaire pour positionner le ::after */
+  display: inline-block; /* pour que la ligne suive la largeur du texte */
   padding-bottom: 0.3rem;
   color: #1b365d;
   margin-top: 2rem;
+}
+
+/* Ligne dégradée en bas du h2 */
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(
+    to right top,
+    #1b365d,
+    #123977,
+    #193b8f,
+    #3238a5,
+    #5230b7,
+    #7c26b2,
+    #9d18ab,
+    #b800a2,
+    #cc0089,
+    #d80070,
+    #dd175a,
+    #dc3545
+  );
+  border-radius: 2px;
 }
 .publication {
   line-height: 1.5;
