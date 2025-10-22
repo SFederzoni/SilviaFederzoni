@@ -122,7 +122,7 @@ h2::after {
   height: 4px;
   width: 100%;
   background: linear-gradient(
-    to right top,
+    to right,
     #1b365d,
     #123977,
     #193b8f,
