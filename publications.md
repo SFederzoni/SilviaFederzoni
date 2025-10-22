@@ -4,10 +4,10 @@ title: "Publications"
 permalink: /publications/
 ---
 
-# Publications 
+<h1 style="color: #1b365d"; font-weight: bold;">Publications</h1>
 
 <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem;">
-  <p>Synchronisé automatiquement avec mon profil HAL</p>
+  <p>La liste des publications est synchronisée automatiquement avec mon profil HAL</p>
 
   <a href="https://cv.hal.science/federzoni-silvia?langChosen=fr" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
     <img src="https://hal.science/assets/img/hal-logo-header.png" alt="HAL" style="height: 45px;">
