@@ -81,9 +81,9 @@ async function loadHALPublications() {
           ${authors} (${year}). <em>${title}</em>.
           ${venue ? `<span style="color:#444;">${venue}</span>.` : ""}
           <br>
-          ${halLink ? `<a href="${halLink}" target="_blank" style="color:#007acc; margin-right: 15px;">voir sur HAL &gt;&gt;</a>` : ""}
-          ${pdfLink ? `<a href="${pdfLink}" target="_blank" style="color:#d9534f;">télécharger pdf</a>` : ""}
-        `;
+          ${halLink ? `<a href="${halLink}" target="_blank" style="color:#007acc; margin-right: 15px;">[<i class="fa-solid fa-link"></i>HAL ; </a>` : ""}
+          ${pdfLink ? `<a href="${pdfLink}" target="_blank" style="color:#d9534f;"><i class="fa-solid fa-file-pdf"></i>pdf]</a>` : ""} 
+        `; 
         
         const div = document.createElement('div');
         div.classList.add('publication');
