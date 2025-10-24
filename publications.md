@@ -24,34 +24,33 @@ permalink: /publications/
 /* ==========================================================
    Script : afficher les publications HAL au format APA
    ========================================================== */
-
 async function loadHALPublications() {
   const halId = "federzoni-silvia";
-  const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,journalTitle_s,bookTitle_s,conferenceTitle_s,linkExtUrl_s,abstract_s&pageSize=100&sort=producedDateY_i desc`;
-
+  const url = `https://api.archives-ouvertes.fr/search/?q=authIdHal_s:${halId}&fl=title_s,authFullName_s,producedDateY_i,docType_s,journalTitle_s,bookTitle_s,conferenceTitle_s,linkExtUrl_s,abstract_s,halId_s,uri_s&pageSize=100&sort=producedDateY_i desc`;
+  
   // Dictionnaire pour nommer les types de documents proprement
   const typeLabels = {
     ART: "Articles de revue",
     COMM: "Communications",
-    COUV: "Chapitres d’ouvrages",
+    COUV: "Chapitres d'ouvrages",
     THESE: "Thèses",
-    DOUV: "Directions d’ouvrages",
+    DOUV: "Directions d'ouvrages",
     OTHER: "Autres publications",
     UNDEFINED: "Documents de travail", 
     POSTER: "Posters" 
   };
-
+  
   try {
     const response = await fetch(url);
     const data = await response.json();
     const container = document.getElementById('hal-publications');
     container.innerHTML = '';
-
+    
     if (!data.response || data.response.numFound === 0) {
       container.innerHTML = "<p>Aucune publication trouvée sur HAL.</p>";
       return;
     }
-
+    
     // Groupement par type
     const grouped = {};
     data.response.docs.forEach(pub => {
@@ -59,37 +58,42 @@ async function loadHALPublications() {
       if (!grouped[type]) grouped[type] = [];
       grouped[type].push(pub);
     });
-
+    
     // Construction HTML pour chaque groupe
     for (const [type, pubs] of Object.entries(grouped)) {
       const section = document.createElement('section');
       section.innerHTML = `<h2>${typeLabels[type] || type}</h2>`;
       section.style.marginBottom = "2rem";
-
+      
       pubs.forEach(pub => {
         const title = pub.title_s || "Titre inconnu";
         const authors = pub.authFullName_s ? pub.authFullName_s.join(', ') : "Auteurs non renseignés";
         const year = pub.producedDateY_i || "";
         const venue = pub.journalTitle_s || pub.bookTitle_s || pub.conferenceTitle_s || "";
-        const link = pub.linkExtUrl_s ? pub.linkExtUrl_s[0] : null;
-
-        // Format APA simplifié
+        
+        // Construction des liens HAL et PDF
+        const halId = pub.halId_s || pub.uri_s;
+        const halLink = halId ? `https://hal.science/${halId}` : null;
+        const pdfLink = halId ? `https://hal.science/${halId}/document` : null;
+        
+        // Format APA simplifié avec liens
         const apa = `
           ${authors} (${year}). <em>${title}</em>.
           ${venue ? `<span style="color:#444;">${venue}</span>.` : ""}
-          ${link ? `<a href="${link}" target="_blank" style="color:#007acc;">↗ Voir sur HAL</a>` : ""}
+          <br>
+          ${halLink ? `<a href="${halLink}" target="_blank" style="color:#007acc; margin-right: 15px;">voir sur HAL &gt;&gt;</a>` : ""}
+          ${pdfLink ? `<a href="${pdfLink}" target="_blank" style="color:#d9534f;">télécharger pdf</a>` : ""}
         `;
-
+        
         const div = document.createElement('div');
         div.classList.add('publication');
         div.style.marginBottom = '1rem';
         div.innerHTML = apa;
         section.appendChild(div);
       });
-
+      
       container.appendChild(section);
     }
-
   } catch (error) {
     document.getElementById('hal-publications').innerHTML =
       "<p>❌ Erreur lors du chargement des publications HAL.</p>";
