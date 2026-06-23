@@ -144,8 +144,11 @@ ED CLESCO, Université Toulouse Jean Jaurès, France
 - Site de présentation et téléchargement : [redac.univ-tlse2.fr/corpus/resolco](http://redac.univ-tlse2.fr/corpus/resolco/presentation.html)
 - Dépôt Ortolang : [ortolang.fr/market/corpora/e-calm](https://www.ortolang.fr/market/corpora/e-calm)
 
-
-   ![Cycle de vie des corpus](/assets/images/viecorpus_cv.png)
+{% comment %}
+Penser à faire un dossier 'images' et modifier le chemin
+{% endcomment %}
+   ![Cycle de vie des corpus](/assets/viecorpus_cv.png)
+  
 ---
 
 ## Compétences techniques
