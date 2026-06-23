@@ -5,7 +5,7 @@ permalink: /cv/
 ---
 
 <div style="text-align:right; margin-bottom: 1em;">
-  <a href="/assets/CV_IGE2026" class="btn" download>⬇ Télécharger le PDF</a>
+  <a href="../assets/CV_IGE2026" class="btn" download>⬇ Télécharger le PDF</a>
 </div>
 
 # Silvia Federzoni
@@ -147,7 +147,7 @@ ED CLESCO, Université Toulouse Jean Jaurès, France
 {% comment %}
 Penser à faire un dossier 'images' et modifier le chemin
 {% endcomment %}
-   ![Cycle de vie des corpus]({{ site.baseurl }}/assets/images/viecorpus_cv.png)
+![Cycle de vie des corpus](../assets/viecorpus_cv.png)
    
   
 ---
