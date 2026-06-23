@@ -146,9 +146,11 @@ ED CLESCO, Université Toulouse Jean Jaurès, France
 
 {% comment %}
 Penser à faire un dossier 'images' et modifier le chemin
+![Cycle de vie des corpus et contribution personnelle](../assets/css/viecorpus_cv.png) pour ecrire en md
 {% endcomment %}
-![Cycle de vie des corpus et contribution personnelle](../assets/css/viecorpus_cv.png)
-   
+
+
+<img src="{{ site.baseurl }}/assets/images/viecorpus_cv.png" alt="Cycle de vie des corpus" width="600">   
   
 ---
 
