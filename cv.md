@@ -147,7 +147,8 @@ ED CLESCO, Université Toulouse Jean Jaurès, France
 {% comment %}
 Penser à faire un dossier 'images' et modifier le chemin
 {% endcomment %}
-   ![Cycle de vie des corpus](/assets/viecorpus_cv.png)
+   ![Cycle de vie des corpus]({{ site.baseurl }}/assets/images/viecorpus_cv.png)
+   
   
 ---
 
