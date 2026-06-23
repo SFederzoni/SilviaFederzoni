@@ -150,7 +150,7 @@ Penser à faire un dossier 'images' et modifier le chemin
 {% endcomment %}
 
 
-<img src="{{ site.baseurl }}/assets/images/viecorpus_cv.png" alt="Cycle de vie des corpus" width="600">   
+<img src="{{ site.baseurl }}/assets/css/viecorpus_cv.png" alt="Cycle de vie des corpus" width="500">   
   
 ---
 
